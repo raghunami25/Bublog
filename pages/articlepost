@@ -1,0 +1,61 @@
+ 
+ 
+    <body>
+      <?php
+      
+
+      $connector =mysqli_connect("localhost","koko","12345","blog");
+        if ($conn) {
+echo "Connected successfully";
+}
+
+else
+{
+    exit('Connect Error (' . mysqli_connect_errno() . ') ' . mysqli_connect_error());
+} 
+     
+
+      //execute the SQL query and return records
+      $result = mysql_query("SELECT * FROM publish ");
+      ?>
+   
+      <body>
+        <?php
+          while( $row = mysql_fetch_assoc( $result ) ){
+            echo
+            "{$row}";
+          }
+        ?>
+      </body>
+     <?php mysql_close($connector); ?>
+    </body>
+    </html>
+
+    
+        <?php
+      
+
+      $connector =mysqli_connect("localhost","koko","12345","blog");
+        if ($connector) {
+echo "Connected successfully";
+}
+
+else
+{
+    exit('Connect Error (' . mysqli_connect_errno() . ') ' . mysqli_connect_error());
+} 
+     
+
+      //execute the SQL query and return records
+      $sql='SELECT * FROM publish ;'
+      $result = mysqli_query($connector,$sql);
+      ?>
+   
+      <body>
+        <?php
+          while( $row = mysql_fetch_assoc( $result ) ){
+            echo "{$row['content']}";
+          }
+        ?>
+      </body>
+     <?php mysql_close($connector); ?>
